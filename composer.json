@@ -1,0 +1,17 @@
+{
+    "name": "tlanyan/ghproxy",
+    "description": "Github.com proxy for China mainland users",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tlanyan",
+            "email": "tlanyan@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "react/event-loop": "^1.1",
+        "react/http": "^1.2"
+    }
+}
