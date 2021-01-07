@@ -89,6 +89,13 @@
       color: #7b7b7b;
       position: relative;
       align-self: flex-start;
+      
+    }
+
+    .example {
+      margin-left: 10em;
+    }
+    .tips {
       margin-left: 7.5em;
     }
 
@@ -101,7 +108,7 @@
 
     .example > p:first-child::before {
       position: absolute;
-      left: -7.5em;
+      left: -8em;
       content: "合法输入示例：";
       color: #7b7b7b;
     }
@@ -117,13 +124,13 @@
         return false;
       }
     </script>
-    <title>GitHub 文件加速</title>
+    <title>GitHub 文件加速（自部署PHP版本）</title>
   </head>
   <body class="flex">
     <a
       style="position: absolute; top: 0; right: 0"
       href="https://github.com/tlanyan/ghproxy"
-      ><img
+      target="_blank"><img
         width="149"
         height="149"
         referrerpolicy="no-referrer"
@@ -131,12 +138,13 @@
         alt="Fork me on GitHub"
         data-recalc-dims="1"
     /></a>
-    <h1 style="margin-bottom: 50px">
+    <h1 style="margin-bottom: 10px">
       <img
         src="https://ae01.alicdn.com/kf/H2fc84859291347418b11091fe0e508b8v.png"
         style="width: 1.5em; margin-right: 0.2em; vertical-align: bottom"
-      />GitHub 文件加速
+      />GitHub 文件加速（PHP版本）
     </h1>
+    <p style="margin-bottom: 40px;">本站仅供演示，如需可靠使用，请自行部署</p>
     <form
       action="./"
       method="get"
@@ -150,23 +158,14 @@
           class="block url"
           name="q"
           type="text"
-          placeholder="键入Github文件链接"
+          placeholder="请输入Github文件链接"
           pattern="^((https|http):\/\/)?(github\.com\/.+?\/.+?\/(?:releases|archive|blob)|(raw\.githubusercontent\.com))\/.+$"
           required
         />
         <div class="bar"></div>
       </label>
       <input class="block btn" type="submit" value="下载" />
-      <div class="tips">
-        <p>
-          GitHub文件链接带不带协议头都可以，支持release、archive以及文件，右键复制出来的链接都是符合标准的，更多用法、clone加速请参考<a
-            href="https://hunsh.net/archives/23/"
-            >这篇文章</a
-          >。
-        </p>
-        <p>release、archive使用cf加速，文件会跳转至JsDelivr</p>
-        <p><strong>注意，不支持项目文件夹</strong></p>
-      </div>
+      
       <div class="example">
         <p>分支源码：https://github.com/hunshcn/project/archive/master.zip</p>
         <p>
@@ -177,11 +176,18 @@
         </p>
         <p>分支文件：https://github.com/hunshcn/project/blob/master/filename</p>
       </div>
+      <div class="tips">
+        <p>
+          右键复制出来的链接都是符合标准的。
+        </p>
+        <p>release、archive直接反代加速，文件会跳转至JsDelivr或cnpmjs.org加速下载</p>
+        <p><strong>注意：不支持项目文件夹</strong></p>
+      </div>
     </form>
     <p style="position: sticky; top: calc(100% - 2.5em)">
       本项目为 <a href="https://github.com/hunshcn/gh-proxy" target="_blank">gh-proxy</a> 的PHP版本，基于 <a href="https://github.com/reactphp" target="_blank">ReactPHP</a> 开发，开源于GitHub
       <a style="color: #3294ea" href="https://github.com/tlanyan/ghproxy"
-        >tlanyan/ghproxy</a
+        target="_blank">tlanyan/ghproxy</a
       >
     </p>
   </body>

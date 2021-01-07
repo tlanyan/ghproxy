@@ -2,7 +2,7 @@
 
 Github文件下载加速PHP版，基于异步PHP框架 [ReactPHP](https://github.com/reactphp)开发。
 
-本项目主要参考 [gh-proxy](https://github.com/hunshcn/gh-proxy)，其js版可运行在CloudFflare Worker上，并提供了可运行在docker中的Python版。
+本项目参考 [gh-proxy](https://github.com/hunshcn/gh-proxy)，其js版可运行在CloudFflare Worker上，并提供了可运行在docker中的Python版。
 
 
 ## 使用教程
@@ -19,7 +19,7 @@ apt php-cli php-fpm php-bcmath php-gd php-mbstring \
 php-mysql php-opcache php-xml php-zip php-json php-imagick
 ````
 
-接着安装composer：
+安装composer：
 
 ````bash
 wget https://getcomposer.org/installer
@@ -40,7 +40,7 @@ composer dump-autoload -o
 打开 `index.php` 文件，视自己情况可修改如下几个配置(一般保持默认即可)：
 
 - `ADDR`：程序监听的IP，默认是本机。如果前端不需要web服务器，请改成 `0.0.0.0`；
-- `PORT`: 程序监听的端口
+- `PORT`: 程序监听的端口，默认8080
 - `JSDELIVR`：是否使用jsdelivr加速
 - `CNPMJS`：是否使用cnpmjs.org加速
 - `SIZE_LIMIT`：最大可下载文件大小，默认2GB
@@ -49,7 +49,7 @@ composer dump-autoload -o
 
 ### 3. 安装Nginx（可选）
 
-可以选择使用Nginx/Apache httpd/Caddy等中间件在前端接受web请求，也可以让程序直接监听端口处理请求。如果采用https访问，建议使用Nginx的web服务器。
+可以选择使用Nginx/Apache httpd/Caddy等中间件在前端接受web请求，也可以让程序直接监听端口处理请求。如果采用https访问，建议使用Nginx等web服务器配置SSL。
 
 安装Nginx:
 
@@ -62,11 +62,13 @@ systemctl enable nginx
 apt install -y nginx
 ````
 
-接着按照实际情况修改项目中的 `ghproxy.conf` 文件，修改完毕后复制到Nginx的配置目录内。
+修改项目中的 `ghproxy.conf` 文件，把域名等改成自己的，然后复制到Nginx配置目录内。
 
 ### 4. 启动程序
 
-进入项目文件夹，执行 `nohup php index.php &`，也可以在 tmux/screen 等终端窗口内执行 `php index.php` 启动项目。
+进入项目文件夹，执行 `nohup php index.php &`，也可以在 tmux/screen 等终端窗口内执行 `php index.php` 启动代理。
+
+部署了Nginx的前端web服务器的，请重启web服务器。
 
 接下来，浏览器打开网址，输入要加速下载的链接，查看加速效果。
 
