@@ -87,6 +87,8 @@ function handler(Psr\Http\Message\ServerRequestInterface $req) {
 }
 
 function serveStaticFiles(string $url) {
+    if ($url == "") $url = "index.html";
+
     $path = ROOT . "/$url";
     $path = realpath($path);
     if (strpos(ROOT, $path) === 0 && is_file($path)) {
