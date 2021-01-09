@@ -131,6 +131,8 @@ function fetch(Psr\Http\Message\ServerRequestInterface $req) {
     $url = substr($url, 1);
 
     $client = new React\Http\Browser($loop);
+    // catch any response
+    $client  = $client->withRejectErrorResponse(false);
 
     // see https://github.com/reactphp/http#streaming-response
     return $client->requestStreaming($req->getMethod(), $url)->then(function (Psr\Http\Message\ResponseInterface $response) {
