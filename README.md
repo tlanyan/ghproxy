@@ -1,6 +1,6 @@
 # ghproxy
 
-Github文件下载加速PHP版，基于异步PHP框架 [ReactPHP](https://github.com/reactphp)开发。
+Github文件下载加速PHP版，基于异步PHP框架 [ReactPHP](https://github.com/reactphp)开发，具有高性能、支持高并发的优点。
 
 演示站点：<https://gh.2i.gs>，教程文章：<https://tlanyan.me/php-version-ghproxy/>
 
@@ -76,6 +76,8 @@ apt install -y nginx
 部署了Nginx的前端web服务器的，请重启web服务器。
 
 接下来，浏览器打开网址，输入要加速下载的链接，查看加速效果。
+
+**停止程序**：首先 `ps aux | grep -v grep  | grep index.php` 找到进程号(输出的第二列)，然后kill掉：`kill -9 进程号`。
 
 使用中遇到问题欢迎反馈。
 
