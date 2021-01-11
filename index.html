@@ -89,28 +89,14 @@
       color: #7b7b7b;
       position: relative;
       align-self: flex-start;
-      
     }
+
+    .tips p, .example p {
+      margin-left: 1em;
+    }    
 
     .example {
-      margin-left: 10em;
-    }
-    .tips {
-      margin-left: 7.5em;
-    }
-
-    .tips > p:first-child::before {
-      position: absolute;
-      left: -3em;
-      content: "PS：";
-      color: #7b7b7b;
-    }
-
-    .example > p:first-child::before {
-      position: absolute;
-      left: -8em;
-      content: "合法输入示例：";
-      color: #7b7b7b;
+      margin-top: -3em;
     }
   </style>
   <head>
@@ -124,6 +110,7 @@
         return false;
       }
     </script>
+    <link rel="icon" href="/favicon.ico">
     <title>GitHub 文件加速（PHP版本）</title>
   </head>
   <body class="flex">
@@ -167,6 +154,7 @@
       <input class="block btn" type="submit" value="下载" />
       
       <div class="example">
+        <h2>输入示例：</h2>
         <p>分支源码：https://github.com/tlanyan/ghproxy/archive/main.zip</p>
         <p>
           release源码：https://github.com/tlanyan/yii2/archive/2.0.4.zip
@@ -178,6 +166,7 @@
         <p>API请求：https://api.github.com/repos/reactphp/http/releases/latest</p>
       </div>
       <div class="tips">
+        <h2>注意事项：</h2>
         <p>
           右键复制出来的链接都是符合标准的。
         </p>
@@ -186,10 +175,7 @@
       </div>
     </form>
     <p style="position: sticky; top: calc(100% - 2.5em)">
-      本项目为 <a href="https://github.com/hunshcn/gh-proxy" target="_blank">gh-proxy</a> 的PHP版本，基于 <a href="https://github.com/reactphp" target="_blank">ReactPHP</a> 开发，开源于GitHub
-      <a style="color: #3294ea" href="https://github.com/tlanyan/ghproxy"
-        target="_blank">tlanyan/ghproxy</a
-      >
+      本项目为 <a href="https://github.com/hunshcn/gh-proxy" target="_blank">gh-proxy</a> 的PHP版本，由 <a href="https://tlanyan.me" target="_blank">tlanyan</a> 基于 <a href="https://github.com/reactphp" target="_blank">ReactPHP</a> 开发
     </p>
   </body>
 </html>
