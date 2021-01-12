@@ -29,10 +29,11 @@ $loop->run();
 
 
 function handler(Psr\Http\Message\ServerRequestInterface $req) {
+    $ip = $req->getHeader('REMOTE_ADDR')[0];
     $url = $req->getUri()->getPath();
     // strip start /
     $url = substr($url, 1);
-    echo "request url: ", $url, PHP_EOL;
+    echo "IP:", $ip, ", request url: ", $url, PHP_EOL;
 
     if (substr($url, 0, 4) !== 'http') {
         return serveStaticFiles($url);
