@@ -29,16 +29,19 @@ $loop->run();
 
 
 function handler(Psr\Http\Message\ServerRequestInterface $req) {
+    $time = date('Y-m-d H:i:s');
     $ip = $req->getHeader('REMOTE_ADDR');
     if (!$ip) {
+        // app deal http requests
         $ip = $req->getServerParams()['REMOTE_ADDR'];
     } else {
+        // app is behind nginx
         $ip = $ip[0];
     }
     $url = $req->getUri()->getPath();
     // strip start /
     $url = substr($url, 1);
-    echo "IP:", $ip, ", request url: ", $url, PHP_EOL;
+    echo "$time IP: $ip, request url: , $url", PHP_EOL;
 
     if (substr($url, 0, 4) !== 'http') {
         return serveStaticFiles($url);
