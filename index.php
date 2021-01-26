@@ -41,7 +41,7 @@ function handler(Psr\Http\Message\ServerRequestInterface $req) {
     $url = $req->getUri()->getPath();
     // strip start /
     $url = substr($url, 1);
-    echo "$time IP: $ip, request url: , $url", PHP_EOL;
+    echo "$time IP: $ip, request url: $url", PHP_EOL;
 
     if (substr($url, 0, 4) !== 'http') {
         return serveStaticFiles($url);
@@ -152,8 +152,12 @@ function fetch(Psr\Http\Message\ServerRequestInterface $req) {
 
         if (isset($headers['Content-Length']) && intval($headers['Content-Length'][0]) > SIZE_LIMIT) {
             echo 'length: ', normalizeSize(intval($headers['Content-Length'][0])), "exceed limit", PHP_EOL;
+            // return direct link instead of error
             return new React\Http\Message\Response(
-                503
+                302,
+                array(
+                    'Location' => $url
+                )
             );
         }
 
