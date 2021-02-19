@@ -71,7 +71,7 @@ apt install -y nginx
 
 ### 4. 启动程序
 
-进入项目文件夹，执行 `nohup php index.php &`，也可以在 tmux/screen 等终端窗口内执行 `php index.php` 启动程序。
+进入项目文件夹，执行 `nohup php index.php > /var/log/ghproxy.log 2>&1 &`，也可以在 tmux/screen 等终端窗口内执行 `php index.php` 启动程序。
 
 部署了Nginx的前端web服务器的，请重启web服务器。
 

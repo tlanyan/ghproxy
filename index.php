@@ -47,6 +47,9 @@ function handler(Psr\Http\Message\ServerRequestInterface $req) {
         return serveStaticFiles($url);
     }
 
+    // @notice: uncomment the following line to proxy any url!
+    // return proxy($req);
+
     $exp1 = '/^https?:\/\/?github\.com\/.+?\/.+?\/(?:releases|archive)\/.*$/i';
     $exp2 = '/^https?:\/\/?github\.com\/.+?\/.+?\/(?:blob)\/.*$/i';
     $exp3 = '/^https?:\/\/?github\.com\/.+?\/.+?\/(?:info|git-).*$/i';
